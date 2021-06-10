@@ -21,7 +21,19 @@ class BlogController extends Controller
 
     public function newBlog(Request $request)
     {
-        return $request->all();
+
+        // raw process
+        //    $image = $_FILES['blog_image'];
+        //     print_r($image);
+        //     exit();
+
+        // framework process
+        $image = $request->file('blog_image');
+        $imageName = $image->getClientOriginalName();
+        $directory = 'blog-image/';
+        $image->move($directory, $imageName);
+
+        return 'success';
     }
 
 }
