@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <br>
-                    <label class="control-label col-md-3">Upload Blog Image</label>
+                    <label class="control-label col-md-3">Blog Image</label>
                     <div class="col-md-9">
                         <input type="file" name="blog_image" id="" accept="image/*" />
                     </div>
