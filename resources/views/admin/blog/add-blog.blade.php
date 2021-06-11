@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-3">Blog Title</label>
                     <div class="col-md-9">
-                        <input type="text" name="category_name" id="" class="form-control" />
+                        <input type="text" name="blog_title" id="" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">

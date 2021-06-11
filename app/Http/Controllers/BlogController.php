@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class BlogController extends Controller
         $blog->blog_title = $request->blog_title;
         $blog->blog_short_description = $request->blog_short_description;
         $blog->blog_long_description = $request->blog_long_description;
-        $blog->blog_image = $request->blog_image;
+        $blog->blog_image = $directory . $imageName;
         $blog->publication_status = $request->publication_status;
         $blog->save();
 
