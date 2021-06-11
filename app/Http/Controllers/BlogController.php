@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Category;
+use DB;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,13 +13,6 @@ class BlogController extends Controller
     {
         return view('admin.blog.add-blog', [
             'categories' => Category::where('publication_status', 1)->get(),
-        ]);
-    }
-
-    public function manageBlog()
-    {
-        return view('admin.blog.manage-blog', [
-            'blogs' => Blog::all(),
         ]);
     }
 
@@ -46,6 +40,19 @@ class BlogController extends Controller
         $blog->save();
 
         return redirect('/blog/add-blog')->with('message', 'Blog info created successfully');
+    }
+
+    public function manageBlog()
+    {
+        //query builder process
+        $blogs = DB::table('blogs')
+            ->join('categories', 'blogs.category_id', '=', 'categories.id')
+            ->select('blogs.*', 'categories.category_name')
+            ->get();
+
+        return view('admin.blog.manage-blog', [
+            'blogs' => $blogs,
+        ]);
     }
 
 }
