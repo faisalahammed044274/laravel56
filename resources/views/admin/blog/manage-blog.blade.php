@@ -45,7 +45,7 @@
                                         <td><img src="{{ asset($blog->blog_image) }}" alt="" height=100px width=180px ></td>
                                         <td>{{ $blog->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                         <td>
-                                            <a href="{{ route('edit-category', ['id' => $blog->id]) }}">Edit</a>
+                                            <a href="{{ route('edit-blog', ['id' => $blog->id]) }}">Edit</a>
                                             <a href="#" id="{{ $blog->id }}" onclick="
                                                         event.preventDefault();
                                                         var check = confirm('Are you sure to delete this item ??');

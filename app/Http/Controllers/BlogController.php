@@ -55,4 +55,12 @@ class BlogController extends Controller
         ]);
     }
 
+    public function editBlog($id)
+    {
+        return view('admin.blog.edit-blog', [
+            'categories' => Category::where('publication_status', 1)->get(),
+            'blog' => Blog::find($id)
+        ]);
+    }
+
 }
