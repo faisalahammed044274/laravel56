@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-9">
-                        <input type="submit" name="btn" class="btn btn-success btn-block" value="Save Category Info">
+                        <input type="submit" name="btn" class="btn btn-success btn-block" value="Update Blog Info">
                     </div>
                     <br>
                 </div>

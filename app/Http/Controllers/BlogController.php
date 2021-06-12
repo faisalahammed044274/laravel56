@@ -48,6 +48,7 @@ class BlogController extends Controller
         $blogs = DB::table('blogs')
             ->join('categories', 'blogs.category_id', '=', 'categories.id')
             ->select('blogs.*', 'categories.category_name')
+            ->orderBy('blogs.id', 'desc')
             ->get();
 
         return view('admin.blog.manage-blog', [
@@ -59,7 +60,7 @@ class BlogController extends Controller
     {
         return view('admin.blog.edit-blog', [
             'categories' => Category::where('publication_status', 1)->get(),
-            'blog' => Blog::find($id)
+            'blog' => Blog::find($id),
         ]);
     }
 
