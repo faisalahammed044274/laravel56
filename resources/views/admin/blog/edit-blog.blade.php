@@ -9,7 +9,7 @@
 
     <div class="row shadow mb-5 bg-white rounded">
         <div class="card col-md-12">
-            <form action="{{ route('new-blog') }}" method="post" class="form-horizontal" enctype="multipart/form-data" name="editBlogForm">
+            <form action="{{ route('update-blog') }}" method="post" class="form-horizontal" enctype="multipart/form-data" name="editBlogForm">
                 @csrf
                 <div class="form-group">
                     <label class="control-label col-md-3">Category Name</label>
@@ -25,6 +25,7 @@
                     <label class="control-label col-md-3">Blog Title</label>
                     <div class="col-md-9">
                         <input type="text" name="blog_title" value="{{ $blog->blog_title }}" id="" class="form-control" />
+                        <input type="text" name="id" value="{{ $blog->id }}" id="" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">

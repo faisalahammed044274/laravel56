@@ -28,3 +28,7 @@ Route::post('/blog/new-blog', 'BlogController@newBlog')->name('new-blog');
 Route::get('/blog/manage-blog', 'BlogController@manageBlog')->name('manage-blog');
 
 Route::get('/blog/edit-blog/{id}', 'BlogController@editBlog')->name('edit-blog');
+
+Route::post('/blog/update-blog', 'BlogController@updateBlog')->name('update-blog');
+
+
