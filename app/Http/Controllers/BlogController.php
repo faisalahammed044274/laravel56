@@ -26,8 +26,9 @@ class BlogController extends Controller
 
         // framework process
         $image = $request->file('blog_image');
+
         $imageName = $image->getClientOriginalName();
-        $directory = 'blog-image/';
+        $directory = 'blog-images/';
         $image->move($directory, $imageName);
 
         $blog = new Blog();
@@ -73,29 +74,19 @@ class BlogController extends Controller
 
             $imageName = $blogImage->getClientOriginalName();
             $directory = 'blog-images/';
-            $image->move($directory, $imageName);
-
-            $blog->category_id = $request->category_id;
-            $blog->blog_title = $request->blog_title;
-            $blog->blog_short_description = $request->blog_short_description;
-            $blog->blog_long_description = $request->blog_long_description;
-            $blog->blog_image = $directory . $imageName;
-            $blog->publication_status = $request->publication_status;
-            $blog->save();
-
-            return redirect('blog/manage-blog')->with('manage', 'Blog Info Update Successfully');
-
-        } else {
-            $blog = Blog::find($request->id);
-
-            $blog->category_id = $request->category_id;
-            $blog->blog_title = $request->blog_title;
-            $blog->blog_short_description = $request->blog_short_description;
-            $blog->blog_long_description = $request->blog_long_description;
-            $blog->publication_status = $request->publication_status;
-            $blog->save();
+            $blogImage->move($directory, $imageName);
 
         }
+
+        $blog->category_id = $request->category_id;
+        $blog->blog_title = $request->blog_title;
+        $blog->blog_short_description = $request->blog_short_description;
+        $blog->blog_long_description = $request->blog_long_description;
+        $blog->blog_image = $directory . $imageName;
+        $blog->publication_status = $request->publication_status;
+        $blog->save();
+
+        return redirect('blog/manage-blog')->with('messages', 'Blog Info Update Successfully');
     }
 
 }

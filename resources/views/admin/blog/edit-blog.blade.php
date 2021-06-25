@@ -9,7 +9,8 @@
 
     <div class="row shadow mb-5 bg-white rounded">
         <div class="card col-md-12">
-            <form action="{{ route('update-blog') }}" method="post" class="form-horizontal" enctype="multipart/form-data" name="editBlogForm">
+            <form action="{{ route('update-blog') }}" method="post" class="form-horizontal" enctype="multipart/form-data"
+                name="editBlogForm">
                 @csrf
                 <div class="form-group">
                     <label class="control-label col-md-3">Category Name</label>
@@ -25,13 +26,14 @@
                     <label class="control-label col-md-3">Blog Title</label>
                     <div class="col-md-9">
                         <input type="text" name="blog_title" value="{{ $blog->blog_title }}" id="" class="form-control" />
-                        <input type="text" name="id" value="{{ $blog->id }}" id="" class="form-control" />
+                        <input type="hidden" name="id" value="{{ $blog->id }}" id="" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3">Blog Short Description</label>
                     <div class="col-md-9">
-                        <textarea class="form-control" name="blog_short_description" id="" cols="30" rows="10">value="{{ $blog->blog_short_description }}</textarea>
+                        <textarea class="form-control" name="blog_short_description" id="" cols="30"
+                            rows="10">value="{{ $blog->blog_short_description }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,14 +49,16 @@
                     <div class="col-md-9">
                         <input type="file" name="blog_image" id="" accept="image/*" />
                         <br>
-                        <img src="{{ asset($blog->blog_image) }}" alt="" height="100" width="150"/>
+                        <img src="{{ asset($blog->blog_image) }}" alt="" height="100" width="150" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3">Publication Status</label>
                     <div class="col-md-9 radio">
-                        <label><input type="radio" {{ $blog->publication_status ==1 ? 'checked' : '' }} name="publication_status" value="1" /> Published</label>
-                        <label><input type="radio" {{ $blog->publication_status ==0 ? 'checked' : '' }} name="publication_status" value="0" /> Unpublished</label>
+                        <label><input type="radio" {{ $blog->publication_status == 1 ? 'checked' : '' }}
+                                name="publication_status" value="1" /> Published</label>
+                        <label><input type="radio" {{ $blog->publication_status == 0 ? 'checked' : '' }}
+                                name="publication_status" value="0" /> Unpublished</label>
                     </div>
                 </div>
                 <div class="form-group">
