@@ -44,7 +44,7 @@
                     <br>
                     <label class="control-label col-md-3">Blog Image</label>
                     <div class="col-md-9">
-                        <input type="file" name="blog_image" id="" accept="image/*" />
+                        <input type="file" name="blog_image" id="" accept="/images*" />
                     </div>
                 </div>
                 <div class="form-group">
